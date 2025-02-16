@@ -36,7 +36,7 @@ export class Response {
 
 export const webhookSchema = z.object({
   id: z.string().length(7).or(z.string().length(10)),
-  secret: z.string().refine((data) => data === process.env.API_SECRET, {
+  secret: z.string().refine((data) => data === process.env.WEBHOOK_SECRET, {
     message: "Invalid secret",
   }),
 })
